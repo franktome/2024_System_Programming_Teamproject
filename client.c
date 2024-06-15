@@ -1,30 +1,7 @@
 // client.c
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <linux/i2c-dev.h>
-#include <sys/ioctl.h>
-#include <math.h>
-#include <signal.h>
-#include <wiringPi.h>
-#include <stdint.h>
-#include <unistd.h>
-#include <time.h>
-#include <wiringPiI2C.h>
-#include <ctype.h>
 
-#include <string.h>
-#include <arpa/inet.h>
-#include <pthread.h>
 
-#define Node Node1
-#include <qr_detect.h>
-#undef Node
-
-#define Node Node2
-#include "server.h"
-#undef Node
-
+#include "client.h"
 
 
 #define client_num 0  // Assume client_num as 0 for demonstration
@@ -41,8 +18,6 @@ client_info player;
 int my_row; // player2->4
 int my_col; // player2->4
 client_info other_player;
-
-
 
 int fd;
 int track_signal[4];
@@ -121,9 +96,6 @@ void* receiveData(void* arg) {
             close(sock);
             pthread_exit(NULL);
         }
-        // Print the map and players information
-        printMap(&dgist);
-        printPlayer(&dgist);
     }
     return NULL;
 }
@@ -323,6 +295,7 @@ while (!pthread_signal) {
 
 
 while(1){
+const char* result = qr_code();printf("%s\n", result);
 count++;
 if (count==550){const char* result = qr_code();printf("%s\n", result);}
 if (count==350){const char* result = qr_code();printf("%s\n", result);}
@@ -487,46 +460,4 @@ previous_act=current_act;
 
     close(sock);
     return 0;
-}
-
-// Implement printMap and printPlayer for client-side usage
-
-void* printMap(void* arg) {
-    DGIST* dgist = (DGIST*)arg;
-    Item tmpItem;
-
-    printf("==========PRINT MAP==========\n");
-    for (int i = 0; i < MAP_ROW; i++) {
-        for (int j = 0; j < MAP_COL; j++) {
-            tmpItem = (dgist->map[i][j]).item;
-            switch (tmpItem.status) {
-                case nothing:
-                    printf("- ");
-                    break;
-                case item:
-                    printf("%d ", tmpItem.score);
-                    break;
-                case trap:
-                    printf("x ");
-                    break;
-            }
-        }
-        printf("\n");
-    }
-    printf("==========PRINT DONE==========\n");
-    return NULL;
-}
-
-void printPlayer(void* arg) {
-    DGIST* dgist = (DGIST*)arg;
-    client_info client;
-    printf("==========PRINT PLAYERS==========\n");
-    for (int i = 0; i < MAX_CLIENTS; i++) {
-        client = dgist->players[i];
-        printf("++++++++++Player %d++++++++++\n", i + 1);
-        printf("Location: (%d, %d)\n", client.row, client.col);
-        printf("Score: %d\n", client.score);
-        printf("Bomb: %d\n", client.bomb);
-    }
-    printf("==========PRINT DONE==========\n");
 }
