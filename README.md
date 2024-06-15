@@ -1,4 +1,4 @@
-Line Tracer car using Raspberry Pi
+Line Tracing car using Raspberry Pi
 =
 **2024 System Programming team project**
 
