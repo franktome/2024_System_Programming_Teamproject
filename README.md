@@ -1,5 +1,13 @@
 Line Tracer car using Raspberry Pi
 =
+**2024 System Programming team project**
+
+**Team name : 0123**
+
+**Member name : 202011003 강승수, 202011133 윤현서, 202111003 강소은, 202211130 윤신이**
+
+**Code content**
+
 1. Run car kit using Raspberry Pi
 
 2. Implementation of line detection and movement using an infrared sensor
