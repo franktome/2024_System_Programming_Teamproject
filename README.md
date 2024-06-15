@@ -6,6 +6,10 @@ Line Tracing car using Raspberry Pi
 
 **Member name : 202011003 강승수, 202011133 윤현서, 202111003 강소은, 202211130 윤신이**
 
+**Demo Video(demo_video.mp4)**
+
+- This is a video of a car doing line tracing and qr detect.
+
 **Code content**
 
 1. Run car kit using Raspberry Pi
