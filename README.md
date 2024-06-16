@@ -1,4 +1,4 @@
-Line Tracing car using Raspberry Pi
+Line Tracing car using RaspberryPi
 =
 **2024 System Programming team project**
 
@@ -17,6 +17,7 @@ Line Tracing car using Raspberry Pi
 
 **2. Development Stack**
 -
+- rasberrypi4(2GB)
 - C
 - C++
 
@@ -35,7 +36,7 @@ Line Tracing car using Raspberry Pi
 3. (server code) ./server (port number)
   ex) ./server 5050
 
-**6. Main function**
+**5. Main function**
 -
 - Run car kit using Raspberry Pi
 
@@ -47,7 +48,7 @@ Line Tracing car using Raspberry Pi
 
 - Implementing an algorithm to get a lot of points
 
-**7. Code content**
+**6. Code content**
 -
 - qr_detect.cpp: The qr_detect function is defined. The openCV library was used.
   
