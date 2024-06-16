@@ -50,10 +50,15 @@ Line Tracing car using Raspberry Pi
 **7. Code content**
 -
 - qr_detect.cpp: The qr_detect function is defined. The openCV library was used.
+  
 - qr_detect.h: This is the header file of qr_detect.cpp.
+  
 - client.c: Line tracing is performed according to the algorithm based on the coordinates obtained with the qr detect function. At this time, map information and score information were received through socket communication with the server, and the highest score was sent to the target point.
+  
 - client.h: This is the header file of client.c.
+  
 - server.c: This is the server code, which creates a map and randomly generates a score for each node. It manages information on game participants and sends map information and score information to participants through socket communication.
+  
 - server.h: This is the header file of server.c.
 
   
