@@ -293,16 +293,16 @@ while (!pthread_signal) {
 //usleep(100000); // Slight delay to ensure data is received
 
 
-
+char* temp="";
 while(1){
-const char* result = qr_code();printf("%s\n", result);
-count++;
-if (count==550){const char* result = qr_code();printf("%s\n", result);}
-if (count==350){const char* result = qr_code();printf("%s\n", result);}
-//number++;
-//if(number==50){head_bang(2, 75);}//result = qr_code();printf("%s\n", result);}
-//if(number==100){head_bang(2, 100);number=0;}//result = qr_code();printf("%s\n", result);}
-//line tracking
+    count++;
+    if (count==550){const char* result = qr_code();printf("%s\n", result); for (int i=0; i<strlen(result);i++){temp[i]=result[i];}}
+    else if (count==350){const char* result = qr_code();printf("%s\n", result);for (int i=0; i<strlen(result);i++){temp[i]=result[i];}}
+    else {const char* result="";}
+    //number++;
+    //if(number==50){head_bang(2, 75);}//result = qr_code();printf("%s\n", result);}
+    //if(number==100){head_bang(2, 100);number=0;}//result = qr_code();printf("%s\n", result);}
+    //line tracking
 get_track_signal(track_signal);
 //printf("%d %d %d %d \n", track_signal[0],track_signal[1],track_signal[2],track_signal[3]);
 for (int i=0; i<4;i++){
@@ -325,6 +325,8 @@ if (((track_signal[0]==0)&&(track_signal[1]==0)&&(track_signal[2]==0))||((track_
 run(0,0);
 delay(100);
 
+
+if (strlen(temp)!=0){cAction.row=temp[0];cAction.col=temp[1];}
 
 send(sock, &cAction, sizeof(ClientAction), client_num);
 my_row=cAction.row;

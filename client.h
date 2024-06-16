@@ -1,7 +1,12 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+
+#define hash hash1
 #include <stdio.h>
+#undef hash
+
+
 #include <stdlib.h>
 #include <fcntl.h>
 #include <linux/i2c-dev.h>
@@ -19,13 +24,20 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
+
+
+
+
 #define Node Node1
 #include "qr_detect.h"
 #undef Node
 
+#define hash hash2
 #define Node Node2
 #include "server.h"
+#undef hash
 #undef Node
+
 
 
 extern DGIST dgist;
