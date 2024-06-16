@@ -2,15 +2,17 @@ Line Tracing car using Raspberry Pi
 =
 **2024 System Programming team project**
 
-**1. Team name : 0123**
+**1. Team name: 0123**
 
-**2. Member name : 202011003 강승수, 202011133 윤현서, 202111003 강소은, 202211130 윤신이**
+**2. Member name: 202011003 강승수, 202011133 윤현서, 202111003 강소은, 202211130 윤신이**
 
-**3. Demo Video(demo_video.mp4)**
+**3. Project period: 2024.05.20.~2024.06.02.**
+
+**4. Demo Video(demo_video.mp4)**
 
 - This is a video of a car doing line tracing and qr detect.
 
-**4. Compilation method**
+**5. Compilation method**
 
 1. Type “make” in the command window.
 
@@ -20,7 +22,7 @@ Line Tracing car using Raspberry Pi
 3. (server code) ./server (port number)
   ex) ./server 5050
 
-**5. Code content**
+**6. Code content**
 
 1. Run car kit using Raspberry Pi
 
