@@ -35,7 +35,7 @@ Line Tracing car using Raspberry Pi
 3. (server code) ./server (port number)
   ex) ./server 5050
 
-**6. main function**
+**6. Main function**
 -
 - Run car kit using Raspberry Pi
 
