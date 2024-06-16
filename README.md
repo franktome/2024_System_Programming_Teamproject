@@ -17,7 +17,7 @@ Line Tracing car using RaspberryPi
 
 **2. Development Stack**
 -
-- rasberrypi4(2GB)
+- raspberrypi4(2GB)
 - C
 - C++
 
